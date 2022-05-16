@@ -43,7 +43,7 @@ test('Teste se a aplicação é redirecionada ao clicar no link favorite', () =>
 
 test('Teste se a aplicação é redirecionada para a página Not Found', () => {
   const { history } = renderWithRouter(<App />);
-  history.push('/nao encontrei nada!');
-  const notFound = screen.getByRole('heading', { name: 'Nothing here' });
+  history.push('/asdadsa');
+  const notFound = screen.getByRole('heading', { name: 'Page requested not found 😭' });
   expect(notFound).toBeInTheDocument();
 });
