@@ -41,4 +41,11 @@ describe('Requisito - 1', () => {
     const { pathname } = history.location;
     expect(pathname).toBe('/favorites');
   });
+
+  test('Teste se a aplicação é redirecionada para a página Not Found', () => {
+    const { history } = renderWithRouter(<App />);
+    history.push('/nao encontrei nada!');
+    const notFound = screen.getByRole('heading', { name: 'Nothing here' });
+    expect(notFound).toBeInTheDocument();
+  });
 });
