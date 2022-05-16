@@ -1,8 +1,8 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../App';
 import renderWithRouter from '../components/renderWithRouter';
+import App from '../App';
 
 describe('Requisito - 1', () => {
   test('Teste se o topo da aplicação contém um conjunto fixo de links.', () => {
