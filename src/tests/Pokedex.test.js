@@ -29,19 +29,19 @@ test('Teste se é mostrado apenas um pokémon por vez.', () => {
 
 test('Teste se a Pokédex tem os botões de filtro', () => {
   renderWithRouter(<App />);
-  pokemons.forEach((elem) => {
-    const btn = screen.getByRole('button', { name: elem.type });
-    userEvent.click(btn);
-    pokemons.filter((ele) => ele.type === elem.type).forEach((ev) => {
-      const proxBtn = screen.getByRole('button', { name: /próximo pokémon/i });
-      userEvent.click(proxBtn);
-      const type = screen.getAllByText(ev.type);
-      const all = screen.getByRole('button', { name: /all/i });
-      expect(all).toBeDefined();
-      expect(type).toBeDefined();
-      expect(type).toHaveLength(2);
-    });
-  });
+  const btnType = screen.getAllByTestId('pokemon-type-button');
+  const numberType = 7;
+  expect(btnType).toHaveLength(numberType);
+  const types = [
+    'Electric',
+    'Fire',
+    'Bug',
+    'Poison',
+    'Psychic',
+    'Normal',
+    'Dragon',
+  ];
+  btnType.forEach((elem, index) => expect(elem).toHaveTextContent(types[index]));
 });
 
 test('Teste se a Pokédex contém um botão para resetar o filtro', () => {
